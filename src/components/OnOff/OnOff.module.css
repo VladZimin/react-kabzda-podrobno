@@ -1,0 +1,31 @@
+.onOffWrapper {
+    margin-top: 10px;
+    display: flex;
+}
+
+.greenBlock, .redBlock {
+    text-align: center;
+    padding: 30px;
+    width: 80px;
+    border: 1px solid black;
+    margin-left: 10px;
+}
+
+.greenBg {
+    background: lightgreen;
+}
+
+.redBg {
+    background: red;
+}
+
+.onOffCircle {
+    cursor: pointer;
+    align-self: center;
+    text-align: center;
+    padding: 20px;
+    margin-left: 20px;
+    width: 45px;
+    border-radius: 50%;
+    border: 1px solid black;
+}

@@ -1,26 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react'
+import './App.css'
+import Accordion from './components/Accordion'
+import Rating from './components/Rating'
+import {OnOff} from './components/OnOff'
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    let [isOn, setIsOn] = useState(false)
+
+    const turnOnOff = () => {
+        setIsOn(!isOn)
+    }
+    return (
+        <div>
+            <PageTitle title="This is APP"/>
+            Article 1
+            <Accordion titleValue="Menu" collapsed/>
+            <Rating value={3}/>
+            <hr/>
+            Article 2
+            <Accordion titleValue="Users" collapsed={false}/>
+            <Rating value={4}/>
+            <OnOff isOn={isOn} turnOnOff={turnOnOff}/>
+        </div>
+    )
 }
 
-export default App;
+
+type TitlePropsType = {
+    title: string
+}
+
+function PageTitle(props: TitlePropsType) {
+    return <h1> {props.title}</h1>
+}
+
+export default App
