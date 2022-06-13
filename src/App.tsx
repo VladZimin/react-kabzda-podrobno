@@ -1,31 +1,19 @@
-import React, {useState} from 'react'
+import React from 'react'
 import './App.css'
-import Accordion from './components/Accordion'
-import Rating from './components/Rating'
-import {OnOff} from './components/OnOff'
+import { OnOff } from './components/OnOff'
+import UncontrolledAccordion from './components/UncontrolledAccordion'
+
 
 function App() {
 
-    let [isOn, setIsOn] = useState(false)
-
-    const turnOnOff = () => {
-        setIsOn(!isOn)
-    }
-    return (
-        <div>
-            <PageTitle title="This is APP"/>
-            Article 1
-            <Accordion titleValue="Menu" collapsed/>
-            <Rating value={3}/>
-            <hr/>
-            Article 2
-            <Accordion titleValue="Users" collapsed={false}/>
-            <Rating value={4}/>
-            <OnOff isOn={isOn} turnOnOff={turnOnOff}/>
-        </div>
-    )
+    return (<div>
+        <PageTitle title='This is APP' />
+        <UncontrolledAccordion titleValue='Menu' />
+        {/*<Rating value={3}/>*/}
+        <UncontrolledAccordion titleValue='Users' />
+        <OnOff />
+    </div>)
 }
-
 
 type TitlePropsType = {
     title: string

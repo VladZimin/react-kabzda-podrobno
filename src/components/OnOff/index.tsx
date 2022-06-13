@@ -1,17 +1,29 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import s from './OnOff.module.css'
 
-type PropsType = {
-    isOn: boolean
-    turnOnOff: () => void
+
+export const OnOff = () => {
+
+    let [isOn, setIsOn] = useState(false)
+
+    return (<div className={s.onOffWrapper}>
+            <div onClick={() => {
+                setIsOn(true)
+            }} className={`${s.greenBlock} ${isOn && s.greenBg}`}>GREEN
+            </div>
+            <div onClick={() => {
+                setIsOn(false)
+            }} className={`${s.redBlock} ${!isOn && s.redBg}`}>RED
+            </div>
+            <div className={`${s.onOffCircle} ${isOn ? s.greenBg : s.redBg}`}>On/Off
+            </div>
+        </div>)
 }
 
-export const OnOff = (props: PropsType) => (
-    <div className={s.onOffWrapper}>
-        <div className={`${s.greenBlock} ${props.isOn && s.greenBg}`}>GREEN</div>
-        <div className={`${s.redBlock} ${!props.isOn && s.redBg}`}>RED</div>
-        <div onClick={props.turnOnOff} className={`${s.onOffCircle} ${props.isOn ? s.greenBg : s.redBg}`}>On/Off</div>
-    </div>
-)
+
+
+
+
+
 
