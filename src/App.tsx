@@ -2,6 +2,7 @@ import React from 'react'
 import './App.css'
 import { OnOff } from './components/OnOff'
 import UncontrolledAccordion from './components/UncontrolledAccordion'
+import UncontrolledRating from './components/UncontrolledRating'
 
 
 function App() {
@@ -10,7 +11,9 @@ function App() {
         <PageTitle title='This is APP' />
         <UncontrolledAccordion titleValue='Menu' />
         {/*<Rating value={3}/>*/}
+        <UncontrolledRating />
         <UncontrolledAccordion titleValue='Users' />
+        <UncontrolledRating />
         <OnOff />
     </div>)
 }
