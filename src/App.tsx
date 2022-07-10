@@ -1,20 +1,24 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './App.css'
-import { OnOff } from './components/OnOff'
+import {OnOff} from './components/OnOff'
 import UncontrolledAccordion from './components/UncontrolledAccordion'
 import UncontrolledRating from './components/UncontrolledRating'
-
+import {CountStarType, Rating} from './components/Rating'
+import {Accordion} from './components/Accordion'
 
 function App() {
 
+    const [starCount, setStarCount] = useState<CountStarType>(0)
+    const [isOn, setIsOn] = useState<boolean>(false)
+    const [isCollapsed, setIsCollapsed] = useState<boolean>(false)
+
     return (<div>
-        <PageTitle title='This is APP' />
-        <UncontrolledAccordion titleValue='Menu' />
-        {/*<Rating value={3}/>*/}
-        <UncontrolledRating />
-        <UncontrolledAccordion titleValue='Users' />
-        <UncontrolledRating />
-        <OnOff />
+        <PageTitle title="This is APP"/>
+        <UncontrolledAccordion titleValue="Menu"/>
+        <UncontrolledRating/>
+        <Accordion titleValue="Users" isCollapsed={isCollapsed} setIsCollapsed={setIsCollapsed}/>
+        <Rating starCount={starCount} setStarCount={setStarCount}/>
+        <OnOff isOn={isOn} setIsOn={setIsOn}/>
     </div>)
 }
 

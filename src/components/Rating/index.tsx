@@ -1,31 +1,37 @@
-import React from 'react';
+import React, {FC} from 'react'
+
+export type CountStarType = 0 | 1 | 2 | 3 | 4 | 5
+
+const arr: CountStarType[] = [1, 2, 3, 4, 5]
 
 type RatingPropsType = {
-    value: 0 | 1 | 2 | 3 | 4 | 5
+    starCount: CountStarType
+    setStarCount: (value: CountStarType) => void
 }
 
-function Rating(props: RatingPropsType) {
+export const Rating: FC<RatingPropsType> = ({starCount, setStarCount}) => {
 
     return (
         <div>
-            <Star selected={props.value > 0}/>
-            <Star selected={props.value > 1}/>
-            <Star selected={props.value > 2}/>
-            <Star selected={props.value > 3}/>
-            <Star selected={props.value > 4}/>
+            {arr.map(num => <Star key={num} selected={starCount > num - 1} setValue={() => setStarCount(num)}/>)}
         </div>
     )
 }
 
-export default Rating;
-
-
 type StarPropsType = {
     selected: boolean
+    setValue: () => void
 }
 
 function Star(props: StarPropsType) {
-    return props.selected ? <span><b>star </b></span> : <span>star </span>
+
+    const starStyle = {cursor: 'pointer', fontSize: '30px'}
+
+    const onClickStarHandler = () => {
+        props.setValue()
+    }
+
+    return <span onClick={onClickStarHandler} style={starStyle}> {props.selected ? <>&#9733;</> : <>&#9734;</>}</span>
 
 }
 
