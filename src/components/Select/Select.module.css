@@ -1,0 +1,16 @@
+.select span.main {
+    border: 1px solid black;
+    min-height: 20px;
+    min-width: 40px;
+}
+
+.select .users {
+    position: absolute;
+    padding: 5px;
+    border: 1px solid black;
+}
+
+.item.selected {
+    background: #4995e0;
+    color: whitesmoke;
+}
