@@ -2,7 +2,7 @@ import React, {FC, useState} from 'react'
 
 import s from './Select.module.css'
 
-type UserType = {
+export type UserType = {
     id: number
     name: string
 }
@@ -13,10 +13,13 @@ export type SelectType = {
     users: UserType[]
 }
 
-export const Select: FC<SelectType> = ({id, users, onChange}) => {
+export const Select: FC<SelectType> = React.memo(({id, users, onChange}) => {
+
+    console.log('SELECT')
+
     const [active, setActive] = useState(false)
     const [hoveredItemId, setHoveredItemId] = useState(id)
-    const selectedUser = users.find(u => u.id === id)
+    const selectedUser = users.find((_, i) => i === id)
     const hoveredItem = users.find(u => u.id === hoveredItemId)
 
     const toggleSelectHandler = () => {
@@ -44,7 +47,7 @@ export const Select: FC<SelectType> = ({id, users, onChange}) => {
             }
         </div>
     )
-}
+})
 
 
 
