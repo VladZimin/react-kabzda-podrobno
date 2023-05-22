@@ -7,4 +7,5 @@ export default {
     component: Clock
 } as ComponentMeta<typeof Clock>
 
-export const BaseExample: ComponentStory<typeof Clock> = () => <Clock/>
+export const DigitalClock: ComponentStory<typeof Clock> = () => <Clock mode={'digital'}/>
+export const AnalogClock: ComponentStory<typeof Clock> = () => <Clock mode={'analog'}/>
